@@ -2,3 +2,9 @@
 .venv
 .vscode
 __pycache__/
+
+faq.db*
+*.db
+*.db-shm
+*.db-wal
+

@@ -8,3 +8,5 @@ faq.db*
 *.db-shm
 *.db-wal
 
+*.ipynb_checkpoints
+

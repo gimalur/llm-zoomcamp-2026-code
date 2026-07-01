@@ -10,3 +10,4 @@ faq.db*
 
 *.ipynb_checkpoints
 
+*/add_secrets.sh

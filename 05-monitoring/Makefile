@@ -18,9 +18,17 @@ postgres: network
 		-v pgdata:/var/lib/postgresql/data \
 		postgres:17
 
+clear:
+	docker stop course-assistant-pg
+	docker rm course-assistant-pg
+	docker network rm monitoring
+
 dbcheck:
 	docker exec -it \
 		course-assistant-pg psql \
 		-U user \
 		-d course_assistant \
     	-c "SELECT id, question, response_time, cost FROM conversations;"
+
+query:
+	uv run python db_query.py

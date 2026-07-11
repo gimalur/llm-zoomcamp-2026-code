@@ -21,6 +21,8 @@ postgres: network
 clear:
 	docker stop course-assistant-pg
 	docker rm course-assistant-pg
+	docker stop grafana
+	docker rm grafana
 	docker network rm monitoring
 
 dbcheck:
@@ -35,3 +37,11 @@ query:
 
 dashboard:
 	uv run streamlit run dashboard.py --server.port 8502
+
+grafana:
+	docker run -it \
+		--name grafana \
+		--network monitoring \
+		-p 3000:3000 \
+		-v grafana_data:/var/lib/grafana \
+		grafana/grafana
